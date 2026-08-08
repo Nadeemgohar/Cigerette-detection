@@ -140,7 +140,7 @@ with tab_img:
 
         with col1:
             st.markdown("**Original**")
-            st.image(image, use_container_width=True)
+            st.image(image, use_column_width=True)
 
         with st.spinner("Running detection..."):
             start = time.time()
@@ -151,7 +151,7 @@ with tab_img:
 
         with col2:
             st.markdown("**Detected**")
-            st.image(annotated, use_container_width=True)
+            st.image(annotated, use_column_width=True)
 
         boxes = results[0].boxes
         num_detections = len(boxes) if boxes is not None else 0
@@ -224,7 +224,7 @@ with tab_vid:
             writer.write(annotated_frame)
 
             if frame_idx % 5 == 0:
-                frame_placeholder.image(annotated_frame[:, :, ::-1], use_container_width=True)
+                frame_placeholder.image(annotated_frame[:, :, ::-1], use_column_width=True)
                 if frame_cig_count > 0:
                     cig_alert_placeholder.markdown(
                         '<div class="danger-banner">⚠️ SMOKING VIOLATION DETECTED in current frame — '
